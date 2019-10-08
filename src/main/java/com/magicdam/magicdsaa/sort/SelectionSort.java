@@ -147,15 +147,15 @@ public class SelectionSort extends Sort{
     }
 
 //    public static void main(String[] args) {
-////        byte[] bytes=new byte[]{6,4,3,3,5};
-////        Sort sort=Sort.getSelectionSort();
-////        sort.sort(bytes);
-////        System.out.println(Arrays.toString(bytes));
+//        byte[] bytes=new byte[]{6,4,3,3,5};
+//        Sort sort=Sort.getSelectionSort();
+//        sort.sort(bytes);
+//        System.out.println(Arrays.toString(bytes));
 //
-////        Byte[] bytes=new Byte[]{6,4,3,3,5};
-////        Sort sort=Sort.getSelectionSort();
-////        sort.sort(bytes);
-////        System.out.println(Arrays.toString(bytes));
+//        Byte[] bytes=new Byte[]{6,4,3,3,5};
+//        Sort sort=Sort.getSelectionSort();
+//        sort.sort(bytes);
+//        System.out.println(Arrays.toString(bytes));
 //
 //        List<Integer> byteList=new ArrayList();
 //        byteList.add(6);

@@ -5,12 +5,16 @@ import java.util.List;
 public abstract class Sort {
     private static BubbleSort bubbleSort=new BubbleSort();
     private static SelectionSort selectionSort=new SelectionSort();
+    private static InsertionSort insertionSort=new InsertionSort();
 
     public static BubbleSort getBubbleSort(){
         return bubbleSort;
     }
     public static SelectionSort getSelectionSort(){
         return selectionSort;
+    }
+    public static InsertionSort getInsertionSort(){
+        return insertionSort;
     }
 
     public abstract void sort(byte[] array);
