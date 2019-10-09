@@ -2,14 +2,20 @@ package com.magicdam.magicdsaa.sort;
 
 import java.util.List;
 
+/**
+ * 冒泡排序
+ * 时间复杂度：O(n^2)
+ * 空间复杂度：O(1)
+ * 稳定性：稳定
+ */
 public class BubbleSort extends Sort {
 
     BubbleSort(){}
 
     @Override
     public void sort(byte[] array) {
-        int j=0;
-        byte t=0;
+        int j;
+        byte t;
         for(int i=0;i<array.length;i++){
             for(j=array.length-1;j>=i+1;j--){
                 if(array[j]<array[j-1]){
@@ -23,8 +29,8 @@ public class BubbleSort extends Sort {
 
     @Override
     public void sort(char[] array) {
-        int j=0;
-        char t=0;
+        int j;
+        char t;
         for(int i=0;i<array.length;i++){
             for(j=array.length-1;j>=i+1;j--){
                 if(array[j]<array[j-1]){
@@ -38,8 +44,8 @@ public class BubbleSort extends Sort {
 
     @Override
     public void sort(short[] array) {
-        int j=0;
-        short t=0;
+        int j;
+        short t;
         for(int i=0;i<array.length;i++){
             for(j=array.length-1;j>=i+1;j--){
                 if(array[j]<array[j-1]){
@@ -53,7 +59,7 @@ public class BubbleSort extends Sort {
 
     @Override
     public void sort(int[] array){
-        int j=0,t=0;
+        int j,t;
         for(int i=0;i<array.length;i++){
             for(j=array.length-1;j>=i+1;j--){
                 if(array[j]<array[j-1]){
@@ -67,8 +73,8 @@ public class BubbleSort extends Sort {
 
     @Override
     public void sort(long[] array){
-        int j=0;
-        long t=0;
+        int j;
+        long t;
         for(int i=0;i<array.length;i++){
             for(j=array.length-1;j>=i+1;j--){
                 if(array[j]<array[j-1]){
@@ -82,7 +88,7 @@ public class BubbleSort extends Sort {
 
     @Override
     public void sort(Object[] array) {
-        int j=0;
+        int j;
         Object t;
         Comparable num1,num2;
         for(int i=0;i<array.length;i++){
@@ -100,7 +106,7 @@ public class BubbleSort extends Sort {
 
     @Override
     public void sort(List list) {
-        int j=0,size=list.size();
+        int j,size=list.size();
         Object t;
         Comparable num1,num2;
         for(int i=0;i<size;i++){
@@ -115,7 +121,4 @@ public class BubbleSort extends Sort {
             }
         }
     }
-
-//    public static void main(String[] args) {
-//    }
 }

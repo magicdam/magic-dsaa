@@ -1,16 +1,20 @@
 package com.magicdam.magicdsaa.sort;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 插入排序
+ * 时间复杂度：O(n^2)
+ * 空间复杂度：O(1)
+ * 稳定性：稳定
+ */
 public class InsertionSort extends Sort{
     InsertionSort(){}
 
     @Override
     public void sort(byte[] array) {
-        int j=0;
-        byte t=0,num=0;
+        int j;
+        byte t,num;
         for(int i=1;i<array.length;i++){
             num=array[i];
             for(j=i;j>0 && num<array[j-1];j--){
@@ -23,8 +27,8 @@ public class InsertionSort extends Sort{
 
     @Override
     public void sort(char[] array) {
-        int j=0;
-        char t=0,num=0;
+        int j;
+        char t,num;
         for(int i=1;i<array.length;i++){
             num=array[i];
             for(j=i;j>0 && num<array[j-1];j--){
@@ -37,8 +41,8 @@ public class InsertionSort extends Sort{
 
     @Override
     public void sort(short[] array) {
-        int j=0;
-        short t=0,num=0;
+        int j;
+        short t,num;
         for(int i=1;i<array.length;i++){
             num=array[i];
             for(j=i;j>0 && num<array[j-1];j--){
@@ -51,8 +55,8 @@ public class InsertionSort extends Sort{
 
     @Override
     public void sort(int[] array) {
-        int j=0;
-        int t=0,num=0;
+        int j;
+        int t,num;
         for(int i=1;i<array.length;i++){
             num=array[i];
             for(j=i;j>0 && num<array[j-1];j--){
@@ -65,8 +69,8 @@ public class InsertionSort extends Sort{
 
     @Override
     public void sort(long[] array) {
-        int j=0;
-        long t=0,num=0;
+        int j;
+        long t,num;
         for(int i=1;i<array.length;i++){
             num=array[i];
             for(j=i;j>0 && num<array[j-1];j--){
@@ -79,9 +83,9 @@ public class InsertionSort extends Sort{
 
     @Override
     public void sort(Object[] array) {
-        int j=0;
-        Object t=null;
-        Comparable num=null;
+        int j;
+        Object t;
+        Comparable num;
         for(int i=1;i<array.length;i++){
             num= (Comparable) array[i];
             for(j=i;j>0 && num.compareTo(array[j-1])<0;j--){
@@ -94,9 +98,9 @@ public class InsertionSort extends Sort{
 
     @Override
     public void sort(List list) {
-        int j=0,size=list.size();
-        Object t=null;
-        Comparable num=null;
+        int j,size=list.size();
+        Object t;
+        Comparable num;
         for(int i=1;i<size;i++){
             num= (Comparable) list.get(i);
             for(j=i;j>0 && num.compareTo(list.get(j-1))<0;j--){
