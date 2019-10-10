@@ -9,12 +9,12 @@ import java.util.List;
  * 空间复杂度：O(n)
  * 稳定性：稳定
  */
-public class MergeSort extends Sort{
+class MergeSort extends Sort{
     @Override
     public void sort(byte[] array) {
         if(array.length==0)
             return;
-        divideAndConquer(array,0,array.length-1);
+        partition(array,0,array.length-1);
     }
 
     private static void merge(byte[] array,int left,int mid,int right) {
@@ -45,12 +45,12 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(byte[] array,int left,int right){
+    private static void partition(byte[] array,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(array,left,mid);
-        divideAndConquer(array,mid+1,right);
+        partition(array,left,mid);
+        partition(array,mid+1,right);
         merge(array,left,mid,right);
     }
 
@@ -58,7 +58,7 @@ public class MergeSort extends Sort{
     public void sort(char[] array) {
         if(array.length==0)
             return;
-        divideAndConquer(array,0,array.length-1);
+        partition(array,0,array.length-1);
     }
 
     private static void merge(char[] array,int left,int mid,int right) {
@@ -89,12 +89,12 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(char[] array,int left,int right){
+    private static void partition(char[] array,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(array,left,mid);
-        divideAndConquer(array,mid+1,right);
+        partition(array,left,mid);
+        partition(array,mid+1,right);
         merge(array,left,mid,right);
     }
 
@@ -102,7 +102,7 @@ public class MergeSort extends Sort{
     public void sort(short[] array) {
         if(array.length==0)
             return;
-        divideAndConquer(array,0,array.length-1);
+        partition(array,0,array.length-1);
     }
 
     private static void merge(short[] array,int left,int mid,int right) {
@@ -133,12 +133,12 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(short[] array,int left,int right){
+    private static void partition(short[] array,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(array,left,mid);
-        divideAndConquer(array,mid+1,right);
+        partition(array,left,mid);
+        partition(array,mid+1,right);
         merge(array,left,mid,right);
     }
 
@@ -146,7 +146,7 @@ public class MergeSort extends Sort{
     public void sort(int[] array) {
         if(array.length==0)
             return;
-        divideAndConquer(array,0,array.length-1);
+        partition(array,0,array.length-1);
     }
 
     private static void merge(int[] array,int left,int mid,int right) {
@@ -177,12 +177,12 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(int[] array,int left,int right){
+    private static void partition(int[] array,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(array,left,mid);
-        divideAndConquer(array,mid+1,right);
+        partition(array,left,mid);
+        partition(array,mid+1,right);
         merge(array,left,mid,right);
     }
 
@@ -190,7 +190,7 @@ public class MergeSort extends Sort{
     public void sort(long[] array) {
         if(array.length==0)
             return;
-        divideAndConquer(array,0,array.length-1);
+        partition(array,0,array.length-1);
     }
 
     private static void merge(long[] array,int left,int mid,int right) {
@@ -221,32 +221,29 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(long[] array,int left,int right){
+    private static void partition(long[] array,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(array,left,mid);
-        divideAndConquer(array,mid+1,right);
+        partition(array,left,mid);
+        partition(array,mid+1,right);
         merge(array,left,mid,right);
     }
 
     @Override
-    public void sort(Object[] array) {
+    public void sort(Comparable[] array) {
         if(array.length==0)
             return;
-        divideAndConquer(array,0,array.length-1);
+        partition(array,0,array.length-1);
     }
 
-    private static void merge(Object[] array,int left,int mid,int right) {
+    private static void merge(Comparable[] array,int left,int mid,int right) {
         int i,j,k;
-        Comparable num1,num2;
-        Object[] bytesLeft = Arrays.copyOfRange(array,left,mid+1);
-        Object[] bytesRight = Arrays.copyOfRange(array,mid+1,right+1);
+        Comparable[] bytesLeft = Arrays.copyOfRange(array,left,mid+1);
+        Comparable[] bytesRight = Arrays.copyOfRange(array,mid+1,right+1);
         i=0;j=0;k=left;
         while (i<bytesLeft.length && j<bytesRight.length){
-            num1= (Comparable) bytesLeft[i];
-            num2= (Comparable) bytesRight[j];
-            if(num1.compareTo(num2)<=0){
+            if(bytesLeft[i].compareTo(bytesRight[j])<=0){
                 array[k]=bytesLeft[i];
                 i++;
             }
@@ -268,32 +265,30 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(Object[] array,int left,int right){
+    private static void partition(Comparable[] array,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(array,left,mid);
-        divideAndConquer(array,mid+1,right);
+        partition(array,left,mid);
+        partition(array,mid+1,right);
         merge(array,left,mid,right);
     }
 
     @Override
-    public void sort(List list) {
+    public void sort(List<? extends Comparable> list) {
         if(list.size()==0)
             return;
-        divideAndConquer(list,0,list.size()-1);
+        List<Comparable> listC=(List<Comparable>)list;
+        partition(listC,0,list.size()-1);
     }
 
-    private static void merge(List list,int left,int mid,int right) {
+    private static void merge(List<Comparable> list,int left,int mid,int right) {
         int i,j,k;
-        Comparable num1,num2;
-        List bytesLeft=list.subList(left,mid+1);
-        List bytesRight=list.subList(mid+1,right+1);
+        List<Comparable> bytesLeft=list.subList(left,mid+1);
+        List<Comparable> bytesRight=list.subList(mid+1,right+1);
         i=0;j=0;k=left;
         while (i<bytesLeft.size() && j<bytesRight.size()){
-            num1= (Comparable) bytesLeft.get(i);
-            num2= (Comparable) bytesRight.get(j);
-            if(num1.compareTo(num2)<=0){
+            if(bytesLeft.get(i).compareTo(bytesRight.get(j))<=0){
                 list.set(k,bytesLeft.get(i));
                 i++;
             }
@@ -315,12 +310,12 @@ public class MergeSort extends Sort{
         }
     }
 
-    private static void divideAndConquer(List list,int left,int right){
+    private static void partition(List<Comparable> list,int left,int right){
         if(left==right)
             return;
         int mid=left+(right-left)/2;
-        divideAndConquer(list,left,mid);
-        divideAndConquer(list,mid+1,right);
+        partition(list,left,mid);
+        partition(list,mid+1,right);
         merge(list,left,mid,right);
     }
 }

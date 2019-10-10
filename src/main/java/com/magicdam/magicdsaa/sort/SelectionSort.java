@@ -8,7 +8,7 @@ import java.util.List;
  * 空间复杂度：O(1)
  * 稳定性：不稳定
  */
-public class SelectionSort extends Sort{
+class SelectionSort extends Sort{
     @Override
     public void sort(byte[] array) {
         int j,maxNumberIndex;
@@ -105,18 +105,16 @@ public class SelectionSort extends Sort{
     }
 
     @Override
-    public void sort(Object[] array) {
+    public void sort(Comparable[] array) {
         int j,maxNumberIndex;
-        Object t;
-        Comparable num,numMax;
+        Comparable t,numMax;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
-            numMax= (Comparable) array[maxNumberIndex];
+            numMax= array[maxNumberIndex];
             for(j=i+1;j<array.length;j++){
-                num= (Comparable) array[j];
-                if(num.compareTo(numMax)<0){
+                if(array[j].compareTo(numMax)<0){
                     maxNumberIndex=j;
-                    numMax=num;
+                    numMax=array[j];
                 }
             }
             if(maxNumberIndex!=i){
@@ -128,24 +126,24 @@ public class SelectionSort extends Sort{
     }
 
     @Override
-    public void sort(List list) {
-        int j,maxNumberIndex,size=list.size();
-        Object t;
-        Comparable num,numMax;
+    public void sort(List<? extends Comparable> list) {
+        List<Comparable> listC=(List<Comparable>)list;
+        int j,maxNumberIndex,size=listC.size();
+        Comparable t;
+        Comparable numMax;
         for(int i=0;i<size-1;i++){
             maxNumberIndex=i;
-            numMax= (Comparable) list.get(maxNumberIndex);
+            numMax= listC.get(maxNumberIndex);
             for(j=i+1;j<size;j++){
-                num= (Comparable) list.get(j);
-                if(num.compareTo(numMax)<0){
+                if(listC.get(j).compareTo(numMax)<0){
                     maxNumberIndex=j;
-                    numMax=num;
+                    numMax=listC.get(j);
                 }
             }
             if(maxNumberIndex!=i){
-                t=list.get(maxNumberIndex);
-                list.set(maxNumberIndex,list.get(i));
-                list.set(i,t);
+                t=listC.get(maxNumberIndex);
+                listC.set(maxNumberIndex,listC.get(i));
+                listC.set(i,t);
             }
         }
     }

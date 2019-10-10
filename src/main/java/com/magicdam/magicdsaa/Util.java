@@ -43,8 +43,8 @@ public class Util {
         array[b]=t;
     }
 
-    public static void swap(Object[] array,int a,int b){
-        Object t=array[a];
+    public static void swap(Comparable[] array,int a,int b){
+        Comparable t=array[a];
         array[a]=array[b];
         array[b]=t;
     }

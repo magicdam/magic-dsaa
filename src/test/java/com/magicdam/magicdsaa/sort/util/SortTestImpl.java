@@ -1,6 +1,7 @@
 package com.magicdam.magicdsaa.sort.util;
 
 import com.magicdam.magicdsaa.sort.Sort;
+
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 

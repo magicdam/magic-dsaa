@@ -8,9 +8,7 @@ import java.util.List;
  * 空间复杂度：O(1)
  * 稳定性：稳定
  */
-public class InsertionSort extends Sort{
-    InsertionSort(){}
-
+class InsertionSort extends Sort{
     @Override
     public void sort(byte[] array) {
         int j;
@@ -82,12 +80,11 @@ public class InsertionSort extends Sort{
     }
 
     @Override
-    public void sort(Object[] array) {
+    public void sort(Comparable[] array) {
         int j;
-        Object t;
-        Comparable num;
+        Comparable t,num;
         for(int i=1;i<array.length;i++){
-            num= (Comparable) array[i];
+            num=array[i];
             for(j=i;j>0 && num.compareTo(array[j-1])<0;j--){
                 t=array[j];
                 array[j]=array[j-1];
@@ -97,16 +94,16 @@ public class InsertionSort extends Sort{
     }
 
     @Override
-    public void sort(List list) {
-        int j,size=list.size();
-        Object t;
-        Comparable num;
+    public void sort(List<? extends Comparable> list) {
+        List<Comparable> listC=(List<Comparable>)list;
+        int j,size=listC.size();
+        Comparable t,num;
         for(int i=1;i<size;i++){
-            num= (Comparable) list.get(i);
-            for(j=i;j>0 && num.compareTo(list.get(j-1))<0;j--){
-                t=list.get(j);
-                list.set(j,list.get(j-1));
-                list.set(j-1,t);
+            num = listC.get(i);
+            for(j=i;j>0 && num.compareTo(listC.get(j-1))<0;j--){
+                t=listC.get(j);
+                listC.set(j,listC.get(j-1));
+                listC.set(j-1,t);
             }
         }
     }

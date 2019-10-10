@@ -159,7 +159,7 @@ public class UtilTest {
     }
 
     @Test
-    public void swapObject() {
+    public void swapComparable() {
         Integer[] array2,array1=new Integer[ARRAY_LENGTH];
         Random random=new Random();
         for(int i=0;i<ARRAY_LENGTH;i++){

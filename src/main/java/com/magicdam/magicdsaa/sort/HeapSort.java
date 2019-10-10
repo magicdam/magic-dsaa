@@ -8,7 +8,7 @@ import java.util.List;
  * 空间复杂度：O(1)
  * 稳定性：不稳定
  */
-public class HeapSort extends Sort{
+class HeapSort extends Sort{
     @Override
     public void sort(byte[] array) {
         int i,j,k,size=array.length;
@@ -235,17 +235,14 @@ public class HeapSort extends Sort{
     }
 
     @Override
-    public void sort(Object[] array) {
+    public void sort(Comparable[] array) {
         int i,j,k,size=array.length;
-        Object t=null;
-        Comparable num1=null,num2=null,num3=num1;
+        Comparable t;
         boolean over;
         for(i=1;i<size;i++){
             k=i;
             while ((j=(k+1)/2-1)>=0) {
-                num1= (Comparable) array[k];
-                num2= (Comparable) array[j];
-                if (num1.compareTo(num2)>0) {
+                if (array[k].compareTo(array[j])>0) {
                     t = array[k];
                     array[k] = array[j];
                     array[j] = t;
@@ -263,18 +260,13 @@ public class HeapSort extends Sort{
             k=0;
             while ((j=k*2+1)<i-1) {
                 over = ((j+1)>=i-1);
-                num2= (Comparable) array[j];
-                num1= (Comparable) array[k];
-                if(!over){
-                    num3= (Comparable) array[j+1];
-                }
-                if (num2.compareTo(num1)>0 && (over || num3.compareTo(num2)<=0)) {
+                if (array[j].compareTo(array[k])>0 && (over || array[j+1].compareTo(array[j])<=0)) {
                     t = array[k];
                     array[k] = array[j];
                     array[j] = t;
                     k=j;
                 }
-                else if(!over && num3.compareTo(num1)>0){
+                else if(!over && array[j+1].compareTo(array[k])>0){
                     t = array[k];
                     array[k] = array[j+1];
                     array[j+1] = t;
@@ -288,20 +280,18 @@ public class HeapSort extends Sort{
     }
 
     @Override
-    public void sort(List list) {
-        int i,j,k,size=list.size();
-        Object t=null;
-        Comparable num1=null,num2=null,num3=num1;
+    public void sort(List<? extends Comparable> list) {
+        List<Comparable> listC=(List<Comparable>)list;
+        int i,j,k,size=listC.size();
+        Comparable t;
         boolean over;
         for(i=1;i<size;i++){
             k=i;
             while ((j=(k+1)/2-1)>=0) {
-                num1= (Comparable) list.get(k);
-                num2= (Comparable) list.get(j);
-                if (num1.compareTo(num2)>0) {
-                    t = list.get(k);
-                    list.set(k,list.get(j));
-                    list.set(j,t);
+                if (listC.get(k).compareTo(listC.get(j))>0) {
+                    t = listC.get(k);
+                    listC.set(k,listC.get(j));
+                    listC.set(j,t);
                 }
                 else{
                     break;
@@ -310,27 +300,22 @@ public class HeapSort extends Sort{
             }
         }
         for(i=size;i>0;i--){
-            t=list.get(0);
-            list.set(0,list.get(i-1));
-            list.set(i-1,t);
+            t=listC.get(0);
+            listC.set(0,listC.get(i-1));
+            listC.set(i-1,t);
             k=0;
             while ((j=k*2+1)<i-1) {
                 over = ((j+1)>=i-1);
-                num2= (Comparable) list.get(j);
-                num1= (Comparable) list.get(k);
-                if(!over){
-                    num3= (Comparable) list.get(j+1);
-                }
-                if (num2.compareTo(num1)>0 && (over || num3.compareTo(num2)<=0)) {
-                    t = list.get(k);
-                    list.set(k,list.get(j));
-                    list.set(j,t);
+                if (listC.get(j).compareTo(listC.get(k))>0 && (over || listC.get(j+1).compareTo(listC.get(j))<=0)) {
+                    t = listC.get(k);
+                    listC.set(k,listC.get(j));
+                    listC.set(j,t);
                     k=j;
                 }
-                else if(!over && num3.compareTo(num1)>0){
-                    t = list.get(k);
-                    list.set(k,list.get(j+1));
-                    list.set(j+1,t);
+                else if(!over && listC.get(j+1).compareTo(listC.get(k))>0){
+                    t = listC.get(k);
+                    listC.set(k,listC.get(j+1));
+                    listC.set(j+1,t);
                     k=j+1;
                 }
                 else{
