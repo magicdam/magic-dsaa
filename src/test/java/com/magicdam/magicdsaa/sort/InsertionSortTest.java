@@ -1,13 +1,13 @@
 package com.magicdam.magicdsaa.sort;
 
-import com.magicdam.magicdsaa.sort.util.SortTestImpl;
 import com.magicdam.magicdsaa.sort.util.SortTest;
+import com.magicdam.magicdsaa.sort.util.SortTestImpl;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BubbleSortTest implements SortTest {
+public class InsertionSortTest implements SortTest {
 
-    private static Sort SORT=Sort.getBubbleSort();
+    private static Sort SORT=Sort.getInsertionSort();
 
     private SortTestImpl sortTestImpl;
 
@@ -57,5 +57,4 @@ public class BubbleSortTest implements SortTest {
     public void sortList() {
         sortTestImpl.sortList();
     }
-
 }

@@ -1,14 +1,18 @@
 package com.magicdam.magicdsaa.sort;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class SelectionSort extends Sort{
+/**
+ * 选择排序
+ * 时间复杂度：O(n^2)
+ * 空间复杂度：O(1)
+ * 稳定性：不稳定
+ */
+class SelectionSort extends Sort{
     @Override
     public void sort(byte[] array) {
-        int j=0,maxNumberIndex=0;
-        byte t=0;
+        int j,maxNumberIndex;
+        byte t;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
             for(j=i+1;j<array.length;j++){
@@ -26,8 +30,8 @@ public class SelectionSort extends Sort{
 
     @Override
     public void sort(char[] array) {
-        int j=0,maxNumberIndex=0;
-        char t=0;
+        int j,maxNumberIndex;
+        char t;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
             for(j=i+1;j<array.length;j++){
@@ -45,8 +49,8 @@ public class SelectionSort extends Sort{
 
     @Override
     public void sort(short[] array) {
-        int j=0,maxNumberIndex=0;
-        short t=0;
+        int j,maxNumberIndex;
+        short t;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
             for(j=i+1;j<array.length;j++){
@@ -64,8 +68,8 @@ public class SelectionSort extends Sort{
 
     @Override
     public void sort(int[] array) {
-        int j=0,maxNumberIndex=0;
-        int t=0;
+        int j,maxNumberIndex;
+        int t;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
             for(j=i+1;j<array.length;j++){
@@ -83,8 +87,8 @@ public class SelectionSort extends Sort{
 
     @Override
     public void sort(long[] array) {
-        int j=0,maxNumberIndex=0;
-        long t=0;
+        int j,maxNumberIndex;
+        long t;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
             for(j=i+1;j<array.length;j++){
@@ -101,18 +105,16 @@ public class SelectionSort extends Sort{
     }
 
     @Override
-    public void sort(Object[] array) {
-        int j=0,maxNumberIndex=0;
-        Object t=null;
-        Comparable num=null,numMax=null;
+    public void sort(Comparable[] array) {
+        int j,maxNumberIndex;
+        Comparable t,numMax;
         for(int i=0;i<array.length-1;i++){
             maxNumberIndex=i;
-            numMax= (Comparable) array[maxNumberIndex];
+            numMax= array[maxNumberIndex];
             for(j=i+1;j<array.length;j++){
-                num= (Comparable) array[j];
-                if(num.compareTo(numMax)<0){
+                if(array[j].compareTo(numMax)<0){
                     maxNumberIndex=j;
-                    numMax=num;
+                    numMax=array[j];
                 }
             }
             if(maxNumberIndex!=i){
@@ -124,47 +126,26 @@ public class SelectionSort extends Sort{
     }
 
     @Override
-    public void sort(List list) {
-        int j=0,maxNumberIndex=0,size=list.size();
-        Object t=null;
-        Comparable num=null,numMax=null;
+    public void sort(List<? extends Comparable> list) {
+        List<Comparable> listC=(List<Comparable>)list;
+        int j,maxNumberIndex,size=listC.size();
+        Comparable t;
+        Comparable numMax;
         for(int i=0;i<size-1;i++){
             maxNumberIndex=i;
-            numMax= (Comparable) list.get(maxNumberIndex);
+            numMax= listC.get(maxNumberIndex);
             for(j=i+1;j<size;j++){
-                num= (Comparable) list.get(j);
-                if(num.compareTo(numMax)<0){
+                if(listC.get(j).compareTo(numMax)<0){
                     maxNumberIndex=j;
-                    numMax=num;
+                    numMax=listC.get(j);
                 }
             }
             if(maxNumberIndex!=i){
-                t=list.get(maxNumberIndex);
-                list.set(maxNumberIndex,list.get(i));
-                list.set(i,t);
+                t=listC.get(maxNumberIndex);
+                listC.set(maxNumberIndex,listC.get(i));
+                listC.set(i,t);
             }
         }
     }
 
-//    public static void main(String[] args) {
-////        byte[] bytes=new byte[]{6,4,3,3,5};
-////        Sort sort=Sort.getSelectionSort();
-////        sort.sort(bytes);
-////        System.out.println(Arrays.toString(bytes));
-//
-////        Byte[] bytes=new Byte[]{6,4,3,3,5};
-////        Sort sort=Sort.getSelectionSort();
-////        sort.sort(bytes);
-////        System.out.println(Arrays.toString(bytes));
-//
-//        List<Integer> byteList=new ArrayList();
-//        byteList.add(6);
-//        byteList.add(4);
-//        byteList.add(3);
-//        byteList.add(3);
-//        byteList.add(5);
-//        Sort sort=Sort.getSelectionSort();
-//        sort.sort(byteList);
-//        System.out.println(byteList);
-//    }
 }
