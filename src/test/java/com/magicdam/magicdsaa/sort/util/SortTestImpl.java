@@ -5,9 +5,7 @@ import com.magicdam.magicdsaa.sort.Sort;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class SortTestImpl implements SortTest {
 
@@ -32,9 +30,11 @@ public class SortTestImpl implements SortTest {
             for (int i = 0; i < array.length; i++) {
                 array[i] = (byte) new Random().nextInt();
             }
+            byte[] array2=Arrays.copyOf(array,array.length);
+            Arrays.sort(array2);
             sort.sort(array);
-            for (int i = 1; i < array.length; i++) {
-                assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+            for (int i = 0; i < array.length; i++) {
+                assertThat(array[i],equalTo(array2[i]));
             }
 //            System.out.println(Arrays.toString(array));
         }
@@ -52,9 +52,11 @@ public class SortTestImpl implements SortTest {
             for (int i = 0; i < array.length; i++) {
                 array[i] = (char) new Random().nextInt();
             }
+            char[] array2=Arrays.copyOf(array,array.length);
+            Arrays.sort(array2);
             sort.sort(array);
-            for (int i = 1; i < array.length; i++) {
-                assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+            for (int i = 0; i < array.length; i++) {
+                assertThat(array[i],equalTo(array2[i]));
             }
 //            System.out.println(Arrays.toString(array));
         }
@@ -72,9 +74,11 @@ public class SortTestImpl implements SortTest {
             for (int i = 0; i < array.length; i++) {
                 array[i] = (short) new Random().nextInt();
             }
+            short[] array2=Arrays.copyOf(array,array.length);
+            Arrays.sort(array2);
             sort.sort(array);
-            for (int i = 1; i < array.length; i++) {
-                assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+            for (int i = 0; i < array.length; i++) {
+                assertThat(array[i],equalTo(array2[i]));
             }
 //            System.out.println(Arrays.toString(array));
         }
@@ -92,9 +96,11 @@ public class SortTestImpl implements SortTest {
             for (int i = 0; i < array.length; i++) {
                 array[i] = new Random().nextInt();
             }
+            int[] array2=Arrays.copyOf(array,array.length);
+            Arrays.sort(array2);
             sort.sort(array);
-            for (int i = 1; i < array.length; i++) {
-                assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+            for (int i = 0; i < array.length; i++) {
+                assertThat(array[i],equalTo(array2[i]));
             }
 //            System.out.println(Arrays.toString(array));
         }
@@ -112,9 +118,11 @@ public class SortTestImpl implements SortTest {
             for (int i = 0; i < array.length; i++) {
                 array[i] = new Random().nextLong();
             }
+            long[] array2=Arrays.copyOf(array,array.length);
+            Arrays.sort(array2);
             sort.sort(array);
-            for (int i = 1; i < array.length; i++) {
-                assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+            for (int i = 0; i < array.length; i++) {
+                assertThat(array[i],equalTo(array2[i]));
             }
 //            System.out.println(Arrays.toString(array));
         }
@@ -133,9 +141,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < array.length; i++) {
                     array[i] = (byte)new Random().nextInt();
                 }
+                Byte[] array2=Arrays.copyOf(array,array.length);
+                Arrays.sort(array2);
                 sort.sort(array);
-                for (int i = 1; i < array.length; i++) {
-                    assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+                for (int i = 0; i < array.length; i++) {
+                    assertThat(array[i],equalTo(array2[i]));
                 }
 //            System.out.println(Arrays.toString(array));
             }
@@ -153,9 +163,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < array.length; i++) {
                     array[i] = (char)new Random().nextInt();
                 }
+                Character[] array2=Arrays.copyOf(array,array.length);
+                Arrays.sort(array2);
                 sort.sort(array);
-                for (int i = 1; i < array.length; i++) {
-                    assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+                for (int i = 0; i < array.length; i++) {
+                    assertThat(array[i],equalTo(array2[i]));
                 }
 //            System.out.println(Arrays.toString(array));
             }
@@ -173,9 +185,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < array.length; i++) {
                     array[i] = (short)new Random().nextInt();
                 }
+                Short[] array2=Arrays.copyOf(array,array.length);
+                Arrays.sort(array2);
                 sort.sort(array);
-                for (int i = 1; i < array.length; i++) {
-                    assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+                for (int i = 0; i < array.length; i++) {
+                    assertThat(array[i],equalTo(array2[i]));
                 }
 //            System.out.println(Arrays.toString(array));
             }
@@ -193,9 +207,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < array.length; i++) {
                     array[i] = new Random().nextInt();
                 }
+                Integer[] array2=Arrays.copyOf(array,array.length);
+                Arrays.sort(array2);
                 sort.sort(array);
-                for (int i = 1; i < array.length; i++) {
-                    assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+                for (int i = 0; i < array.length; i++) {
+                    assertThat(array[i],equalTo(array2[i]));
                 }
 //            System.out.println(Arrays.toString(array));
             }
@@ -213,9 +229,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < array.length; i++) {
                     array[i] = new Random().nextLong();
                 }
+                Long[] array2=Arrays.copyOf(array,array.length);
+                Arrays.sort(array2);
                 sort.sort(array);
-                for (int i = 1; i < array.length; i++) {
-                    assertThat(array[i], greaterThanOrEqualTo(array[i - 1]));
+                for (int i = 0; i < array.length; i++) {
+                    assertThat(array[i],equalTo(array2[i]));
                 }
 //            System.out.println(Arrays.toString(array));
             }
@@ -236,9 +254,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < ARRAY_LENGTH; i++) {
                     list.add((byte) new Random().nextInt());
                 }
+                List list2=new ArrayList(list);
+                Collections.sort(list2);
                 sort.sort(list);
-                for (int i = 1; i < ARRAY_LENGTH; i++) {
-                    assertThat(list.get(i), greaterThanOrEqualTo(list.get(i - 1)));
+                for (int i = 0; i < ARRAY_LENGTH; i++) {
+                    assertThat(list.get(i), equalTo(list2.get(i)));
                 }
 //            System.out.println(list);
             }
@@ -258,9 +278,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < ARRAY_LENGTH; i++) {
                     list.add((char) new Random().nextInt());
                 }
+                List list2=new ArrayList(list);
+                Collections.sort(list2);
                 sort.sort(list);
-                for (int i = 1; i < ARRAY_LENGTH; i++) {
-                    assertThat(list.get(i), greaterThanOrEqualTo(list.get(i - 1)));
+                for (int i = 0; i < ARRAY_LENGTH; i++) {
+                    assertThat(list.get(i), equalTo(list2.get(i)));
                 }
 //            System.out.println(list);
             }
@@ -279,9 +301,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < ARRAY_LENGTH; i++) {
                     list.add((short) new Random().nextInt());
                 }
+                List list2=new ArrayList(list);
+                Collections.sort(list2);
                 sort.sort(list);
-                for (int i = 1; i < ARRAY_LENGTH; i++) {
-                    assertThat(list.get(i), greaterThanOrEqualTo(list.get(i - 1)));
+                for (int i = 0; i < ARRAY_LENGTH; i++) {
+                    assertThat(list.get(i), equalTo(list2.get(i)));
                 }
 //            System.out.println(list);
             }
@@ -300,9 +324,11 @@ public class SortTestImpl implements SortTest {
                 for (int i = 0; i < ARRAY_LENGTH; i++) {
                     list.add(new Random().nextLong());
                 }
+                List list2=new ArrayList(list);
+                Collections.sort(list2);
                 sort.sort(list);
-                for (int i = 1; i < ARRAY_LENGTH; i++) {
-                    assertThat(list.get(i), greaterThanOrEqualTo(list.get(i - 1)));
+                for (int i = 0; i < ARRAY_LENGTH; i++) {
+                    assertThat(list.get(i), equalTo(list2.get(i)));
                 }
 //            System.out.println(list);
             }

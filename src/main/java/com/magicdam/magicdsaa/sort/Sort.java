@@ -19,37 +19,37 @@ public abstract class Sort {
     /**
      * 获取冒泡排序类实例
      */
-    public static BubbleSort getBubbleSort(){
+    public static Sort getBubbleSort(){
         return bubbleSort;
     }
     /**
      * 获取选择排序类实例
      */
-    public static SelectionSort getSelectionSort(){
+    public static Sort getSelectionSort(){
         return selectionSort;
     }
     /**
      * 获取插入排序类实例
      */
-    public static InsertionSort getInsertionSort(){
+    public static Sort getInsertionSort(){
         return insertionSort;
     }
     /**
      * 获取堆排序类实例
      */
-    public static HeapSort getHeapSort(){
+    public static Sort getHeapSort(){
         return heapSort;
     }
     /**
      * 获取归并排序类实例
      */
-    public static MergeSort getMergeSort(){
+    public static Sort getMergeSort(){
         return mergeSort;
     }
     /**
      * 获取快速排序类实例
      */
-    public static QuickSort getQuickSort(){
+    public static Sort getQuickSort(){
         return quickSort;
     }
 

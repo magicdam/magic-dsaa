@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.TreeMap;
 
 public class SortMeasuringTime {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("开始运行...");
         long time1,time2;
         time1 = System.nanoTime();
@@ -16,9 +16,9 @@ public class SortMeasuringTime {
     }
 
     public static void test(){
-        long[][] times=new long[6][11];
+        long[][] times=new long[7][11];
         //不宜太多，防止GC造成影响
-        int[] INTS=new int[5000];
+        int[] INTS=new int[10000];
         Random random=new Random();
 
         //j=0时预热一下，不参与计算平均值
@@ -32,6 +32,7 @@ public class SortMeasuringTime {
             times[3][j]=sort(Sort.getHeapSort(), INTS);
             times[4][j]=sort(Sort.getMergeSort(), INTS);
             times[5][j]=sort(Sort.getQuickSort(), INTS);
+            times[6][j]=sort(Sort.getQuickSort(), INTS);
         }
 
         TreeMap<Long, String> treeMap=new TreeMap();
@@ -41,6 +42,7 @@ public class SortMeasuringTime {
         treeMap.put(calcAverage(times[3]),"堆排序");
         treeMap.put(calcAverage(times[4]),"归并排序");
         treeMap.put(calcAverage(times[5]),"快速排序");
+        treeMap.put(calcAverage(times[6]),"Arrays排序");
         for(Long item:treeMap.keySet()){
             System.out.println(treeMap.get(item) + "：" + timeFormat(item));
         }
@@ -59,9 +61,19 @@ public class SortMeasuringTime {
         long time=0;
         int[] ints = Arrays.copyOf(INTS, INTS.length);
         long time1, time2;
-        sort = Sort.getBubbleSort();
         time1 = System.nanoTime();
         sort.sort(ints);
+        time2 = System.nanoTime();
+        time=time2-time1;
+        return time;
+    }
+
+    public static long sort(int[] INTS){
+        long time=0;
+        int[] ints = Arrays.copyOf(INTS, INTS.length);
+        long time1, time2;
+        time1 = System.nanoTime();
+        Arrays.sort(ints);
         time2 = System.nanoTime();
         time=time2-time1;
         return time;
