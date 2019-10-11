@@ -1,9 +1,7 @@
 package com.magicdam.magicdsaa.sort;
 
 import com.magicdam.magicdsaa.Util;
-
 import java.util.List;
-
 /**
  * 快速排序
  * 时间复杂度O(nlogn)

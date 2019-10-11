@@ -1,6 +1,8 @@
 package com.magicdam.magicdsaa.sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -284,8 +286,8 @@ class MergeSort extends Sort{
 
     private static void merge(List<Comparable> list,int left,int mid,int right) {
         int i,j,k;
-        List<Comparable> bytesLeft=list.subList(left,mid+1);
-        List<Comparable> bytesRight=list.subList(mid+1,right+1);
+        List<Comparable> bytesLeft=new ArrayList(list.subList(left,mid+1));
+        List<Comparable> bytesRight=new ArrayList(list.subList(mid+1,right+1));
         i=0;j=0;k=left;
         while (i<bytesLeft.size() && j<bytesRight.size()){
             if(bytesLeft.get(i).compareTo(bytesRight.get(j))<=0){
